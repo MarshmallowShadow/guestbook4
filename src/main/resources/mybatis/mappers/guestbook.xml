@@ -12,7 +12,7 @@
 <!-- 쿼리문 작성 -->
 	
 	<!-- insert -->
-	<insert id="insert" parameterType="com.javaex.vo.GuestVo">
+	<insert id="insert" parameterType="GuestVo">
 		<![CDATA[
 			insert into guestbook
 			values(seq_guestbook_no.nextval, #{name}, #{password}, #{content}, sysdate)
@@ -20,7 +20,7 @@
 	</insert>
 	
 	<!-- delete -->
-	<delete id="delete" parameterType="com.javaex.vo.GuestVo">
+	<delete id="delete" parameterType="GuestVo">
 		<![CDATA[
 			delete from guestbook
 			where no = #{no}
@@ -29,13 +29,13 @@
 	</delete>
 	
 	<!-- getList -->
-	<select id="getList" resultType="com.javaex.vo.GuestVo">
+	<select id="getList" resultMap="resultMapGuestVo">
 		<![CDATA[
 			select	no,
 					name,
 					password,
 					content,
-					to_char(reg_date, 'YYYY-MM-DD HH24:MM:SS') "reg_date"
+					to_char(reg_date, 'YYYY-MM-DD HH24:MM:SS') reg_date
 			from guestbook
 			order by no asc
 		]]>
