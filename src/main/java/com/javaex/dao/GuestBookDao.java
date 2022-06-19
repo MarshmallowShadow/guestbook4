@@ -11,7 +11,7 @@ import com.javaex.vo.GuestVo;
 public class GuestBookDao {
 	
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 
 
 	public int insert(GuestVo gVo) {

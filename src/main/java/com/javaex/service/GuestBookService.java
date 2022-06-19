@@ -15,15 +15,18 @@ public class GuestBookService {
 	private GuestBookDao gDao;
 	
 	public List<GuestVo> getList(){
+		//System.out.println("GuestBookService: getList");
 		List<GuestVo> gList = gDao.getList();
 		return gList;
 	}
 	public int insert(GuestVo gVo) {
+		//System.out.println("GuestBookService: insert");
 		int count = -1;
 		count = gDao.insert(gVo);
 		return count;
 	}
 	public int delete(int no, String password) {
+		//System.out.println("GuestBookService: password");
 		int count = -1;
 		count = gDao.delete(no, password);
 		return count;
